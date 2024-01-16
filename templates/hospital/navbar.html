@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    .bs-example {
+      margin: 0px;
+
+    }
+
+    .navbar-brand {
+      font-size: 20px;
+      font-family: sans-serif;
+      color: black;
+
+    }
+  
+    /* The text will initially be hidden */
+.typed-text {
+  overflow: hidden;
+  border-right: .15em solid rgb(43, 0, 255); /* Cursor styling */
+  white-space: nowrap; /* Keep text in one line */
+  margin: 0 auto;
+  color:rgb(255, 0, 170);
+  font-family: 'Arial', sans-serif; /* Change font style */
+  font-size: 30px; /* Change font size */
+  animation: typing 6s steps(40, end), glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Keyframes for the typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 30%;
+  }
+}
+
+/* Keyframes for the glowing effect */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ff7f50, 0 0 20px #ff7f50, 0 0 30px #ff7f50; /* Define glow effect */
+  }
+  to {
+    text-shadow: 0 0 20px #ff5090, 0 0 30px #ff5090, 0 0 40px #ff5090; /* Modify glow for effect */
+  }
+}
+  </style>
+</head>
+
+<body>
+
+
+
+  <div class="bs-example">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#33b773;">
+      <a href="/" class="typed-text">Ankit Hospital Management System</a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <div class="navbar-nav">
+
+          
+
+
+        </div>
+
+        <div class="navbar-nav">
+          <a href="/adminclick" class="nav-item nav-link" >Admin</a>
+          <a href="/doctorclick" class="nav-item nav-link">Doctor</a>
+          <a href="/patientclick" class="nav-item nav-link">Patient</a>
+          <a href="/contactus" class="nav-item nav-link">Contact Us</a>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+
+ 
+
+</body>
+
+</html>

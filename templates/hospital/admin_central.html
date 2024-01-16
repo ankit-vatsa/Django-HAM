@@ -1,0 +1,119 @@
+{% extends 'hospital/admin_base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 65vh;
+            /* background-color: red; */
+        }
+
+        #formContainer {
+            background-color: rgb(255, 2, 2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    </head>
+    <body>
+            <p style="font-size:x-large; color: blue;">Kindly fill the data of patients here, to upload it to the centralized government repository. </p>
+            <p style="font-size:x-large; color: blue;">The alerts of the outbreaks of the health situation will be notified to the registered mail only to the stakeholders.</p>
+		<section class="center-content">	
+		<form id="dataForm">
+			<label for="ABHA_ID">ABHA ID:</label>
+			<input type="text" id="ABHA_ID" name="ABHA_ID" required><br>
+	
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required><br>
+	
+			<label for="condition">Condition:</label>
+			<input type="text" id="condition" name="condition" required><br>
+	
+			<label for="remarks">Remarks:</label>
+			<input type="text" id="remarks" name="remarks" required><br>
+	
+			<button type="button" onclick="submitData()">Submit</button>
+		</form>
+        </section>
+
+		<script>
+			
+			function submitData() {
+				var data = {
+					"httpMethod": "POST",
+					"body": {
+						"ABHA_ID": document.getElementById("ABHA_ID").value,
+						"name": document.getElementById("name").value,
+						"condition": document.getElementById("condition").value,
+						"remarks": document.getElementById("remarks").value
+					}
+				};
+	
+				var apiUrl = 'https://ziuaijp797.execute-api.ap-south-1.amazonaws.com/Crisis'; // Replace with your AWS API endpoint URL
+	
+				var headers = {
+					'Content-Type': 'application/json',
+					'Content-Length': JSON.stringify(data).length.toString()
+				};
+	
+				// Send the request to the AWS API
+				fetch(apiUrl, {
+					method: 'POST',
+					headers: headers,
+					body: JSON.stringify(data)
+				})
+				.then(response => response.json())
+				.then(data => {
+					console.log('Success:', data);
+                    location.reload();
+					// Handle success response
+				})
+				.catch(error => {
+					console.error('Error:', error);
+					// Handle error
+				});
+				
+			}
+		</script>
+	
+    </body>
+
+{%endblock content%}

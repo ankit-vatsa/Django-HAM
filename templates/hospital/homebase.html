@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ankit HMS</title>
+  <style>
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust the height of the container */
+    border: 10px solid #000;
+    /* padding: 20px; Padding inside the container */
+    box-sizing: border-box; /* Include border and padding in the container's total width and height */
+  margin:80px;
+  margin-left: 360px;
+  margin-right: 360px;
+  }
+  
+  /* Style for the image (optional) */
+  img {
+    max-width: 110%; /* Ensure the image does not exceed its container */
+    max-height: 110%; /* Ensure the image does not exceed its container */
+  }
+
+  .background1{
+    background: transparent;
+  }
+  
+    </style>
+</head>
+
+<body>
+  {% include "hospital/navbar.html" %}
+
+<div class="background1">
+  {%block content%}
+  {%endblock content%}
+</div>
+
+  {% include "hospital/footer.html" %}
+</body>
+
+<script>
+  // Get the computed background color of the content
+  const contentBgColor = window.getComputedStyle(document.querySelector('.center-content')).backgroundColor;
+  // Apply the background color to the center-content class
+  document.getElementById('centerContent').style.backgroundColor = contentBgColor;
+</script>
+
+</html>

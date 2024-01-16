@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>HMS - Django</title>
+
+<style>
+  .back-image{
+  background-image: url('{% static "images/hospitalback.jpg" %}');
+  background-size:cover; /* Set the size of the background image to cover the entire div */
+  background-repeat:repeat;
+}
+</style>
+
+</head>
+
+<body>
+<div class="back-image">
+  {% include "hospital/navbar.html" %}
+ 
+  <style>
+    /* Add CSS styles specific to this page */
+    .center-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Adjust as needed for your layout */
+    }
+  </style>
+  <div class="center-content">
+  <center>
+    <h3 class='alert alert-success'>Send Us Your Valuable Feedback !</h3>
+
+    <form method="POST">
+      <!-- Very Important csrf Token -->
+      {% csrf_token %}
+      <div class="form-group">
+        <p>
+        <h3>{{ form.as_p }}</h3>
+        </p>
+        <br>
+        <input type="submit" value="Send Message" class='btn btn-primary btn-lg'>
+      </div>
+    </form>
+  </center>
+  </div>
+  {% include "hospital/footer.html" %}
+</div>
+</body>
+
+</html>

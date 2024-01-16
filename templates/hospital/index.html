@@ -1,0 +1,141 @@
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<head>
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      /* background-image: url('{% static "images/back.jpg" %}'); */
+      background: transparent;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .jumbotron h5,
+    h3 {
+      text-align: center;
+   
+    }
+
+
+    .alert {
+      margin: 0px;
+    }
+
+
+
+    .glow {
+      font-size: 50px;
+      color: white;
+      text-align: center;
+      -webkit-animation: glow 1s ease-in-out infinite alternate;
+      -moz-animation: glow 1s ease-in-out infinite alternate;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+      }
+
+      to {
+        text-shadow: 0 0 20px #eeeeee, 0 0 30px #fa2d2d, 0 0 40px #fa2d2d, 0 0 50px #fa2d2d, 0 0 60px #fa2d2d, 0 0 70px #fa2d2d, 0 0 80px #fa2d2d;
+      }
+    }
+
+/* The text will initially be hidden */
+.typed-text {
+  overflow: hidden;
+  border-right: .15em solid aqua; /* Cursor styling */
+  white-space: nowrap; /* Keep text in one line */
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif; /* Change font style */
+  font-size: 24px; /* Change font size */
+  color: rgb(23, 255, 251); /* Text color */
+  text-decoration: underline; /* Underline style */
+  text-decoration-color: darkblue; /* Color of the underline */
+  animation: typing 6s steps(40, end), glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Keyframes for the typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 28%;
+  }
+}
+
+/* Keyframes for the glowing effect */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #830030, 0 0 20px #830030, 0 0 30px #830030; /* Define glow effect */
+  }
+  to {
+    text-shadow: 0 0 20px #830030, 0 0 30px #830030, 0 0 40px #830030; /* Modify glow for effect */
+  }
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Adjust the height of the container */
+  border: 10px solid #000;
+  /* padding: 20px; Padding inside the container */
+  box-sizing: border-box; Include border and padding in the container's total width and height
+margin:80px;
+margin-left: 360px;
+margin-right: 360px;
+}
+
+/* Style for the image (optional) */
+img {
+  max-width: 110%; /* Ensure the image does not exceed its container */
+  max-height: 110%; /* Ensure the image does not exceed its container */
+}
+.back-image{
+  background-image: url('{% static "images/back.jpg" %}');
+  background-size:auto; /* Set the size of the background image to cover the entire div */
+  background-repeat:repeat;
+}
+  </style>
+</head>
+<br>
+<br>
+<div class="back-image">
+<div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px;">
+  <br>
+  <h5 class="typed-text">Ankit Hospital Management System</h5>
+  
+  <br><br><br><br><br>
+  <p>
+    <h3>Emergency ?</h3>
+    
+  <p class="lead">
+    <a class="btn btn-danger btn-lg" href="/patientclick" role="button">Take Appointment Now!</a>
+  </p>
+  <br><br>
+  
+  <div class="image-container">
+    
+    <img src="{% static "images/quote_prevention.jpg" %}" alt="Quote" style="size-adjust:80%,align: center" >
+  </div>
+  
+  <h5 class="typed-text" style="color: rgb(55, 255, 0); background-color: none;">Please select your role below : </h5>
+  
+  <br><br><br><br>
+</div>
+{% include "hospital/admin_doctor_patient_card.html" %}
+<br><br><br>
+
+</div>
+{% endblock content %}
+
+

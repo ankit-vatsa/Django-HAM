@@ -1,0 +1,36 @@
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  /* Add CSS styles specific to this page */
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Adjust as needed for your layout */
+    /* background-color: #26ff00; */
+  }
+  .back-image{
+  background-image: url('{% static "images/hospitalback.jpg" %}');
+  background-size:cover; /* Set the size of the background image to cover the entire div */
+  background-repeat:repeat;
+}
+</style>
+<div class="back-image">
+<div class="center-content">
+  <div class="jumbotron" style="margin-bottom:0px; background: transparent;">
+  <h1 class="display-4" style="text-align:center;">Hello, Admin</h1>
+  <p class="lead">Welcome to Hospital Management System.</p>
+  <p class="lead">This page serves the purpose to manage the whole system.</p>
+  <hr class="my-4">
+ 
+  <p class="lead">
+    <a class="btn btn-danger btn-lg" href="/adminsignup" role="button">Sign Up</a>
+    <a class="btn btn-success btn-lg" href="/adminlogin" role="button">Login</a>
+  </p>
+</div>
+</div>
+</div>
+{% endblock content %}
